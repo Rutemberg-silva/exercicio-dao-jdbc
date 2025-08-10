@@ -7,6 +7,7 @@ import model.entities.Seller;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 public class Program {
 
@@ -33,5 +34,20 @@ public class Program {
 		Seller newseller = new Seller(null, "Greg", "greg@gmail.com", new Date(),5000.00,department);
 		sellerDao.insert(newseller);
 		System.out.println("Inserted seller successfully, new ID = " + newseller.getId());
+
+		System.out.println("==== TESTE NUM 5 Seller UPDATE ====");
+		seller =  sellerDao.findById(1);
+		seller.setName("Kauan Cardoso");
+		sellerDao.update(seller);
+		System.out.println("Updated seller successfully, new ID = " + seller.getId());
+
+		System.out.println("==== TESTE NUM 6 Seller DELETE ====");
+		System.out.println("Enter id for delete test: ");
+		Scanner sc = new Scanner(System.in);
+		int id = sc.nextInt();
+		sellerDao.deleteById(id);
+		System.out.println("Deleted seller successfully");
+	sc.close();
+
 	}
 }
