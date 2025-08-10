@@ -1,7 +1,9 @@
 package application;
 
+import db.DB;
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
+import model.dao.impl.SellerDaoJDBC;
 import model.entities.Department;
 import model.entities.Seller;
 
@@ -48,6 +50,6 @@ public class Program {
 		sellerDao.deleteById(id);
 		System.out.println("Deleted seller successfully");
 	sc.close();
-
+		DB.closeConnection();
 	}
 }
